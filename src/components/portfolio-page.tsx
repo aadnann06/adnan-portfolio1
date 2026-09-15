@@ -403,11 +403,11 @@ export function PortfolioPage() {
             </div>
             <form onSubmit={submitContact} noValidate className="glass-panel p-6 sm:p-8 lg:col-span-7">
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Name" name="name" error={errors.name}><Input id="name" name="name" maxLength={100} placeholder="Your name" aria-invalid={Boolean(errors.name)} /></Field>
-                <Field label="Email" name="email" error={errors.email}><Input id="email" name="email" type="email" maxLength={255} placeholder="you@example.com" aria-invalid={Boolean(errors.email)} /></Field>
+                <Field label="Name" name="name" error={errors["name"]}><Input id="name" name="name" maxLength={100} placeholder="Your name" aria-invalid={Boolean(errors["name"])} /></Field>
+                <Field label="Email" name="email" error={errors["email"]}><Input id="email" name="email" type="email" maxLength={255} placeholder="you@example.com" aria-invalid={Boolean(errors["email"])} /></Field>
               </div>
-              <div className="mt-5"><Field label="Subject" name="subject" error={errors.subject}><Input id="subject" name="subject" maxLength={120} placeholder="Opportunity or topic" aria-invalid={Boolean(errors.subject)} /></Field></div>
-              <div className="mt-5"><Field label="Message" name="message" error={errors.message}><Textarea id="message" name="message" rows={5} maxLength={1000} placeholder="Tell me what you’d like to discuss" aria-invalid={Boolean(errors.message)} /></Field></div>
+              <div className="mt-5"><Field label="Subject" name="subject" error={errors["subject"]}><Input id="subject" name="subject" maxLength={120} placeholder="Opportunity or topic" aria-invalid={Boolean(errors["subject"])} /></Field></div>
+              <div className="mt-5"><Field label="Message" name="message" error={errors["message"]}><Textarea id="message" name="message" rows={5} maxLength={1000} placeholder="Tell me what you’d like to discuss" aria-invalid={Boolean(errors["message"])} /></Field></div>
               <Button type="submit" size="lg" className="mt-6">Send Message <Send /></Button>
             </form>
           </div>
@@ -424,7 +424,7 @@ export function PortfolioPage() {
   );
 }
 
-function Field({ label, name, error, children }: { label: string; name: string; error?: string; children: React.ReactNode }) {
+function Field({ label, name, error, children }: { label: string; name: string; error: string | undefined; children: React.ReactNode }) {
   return (
     <label htmlFor={name} className="block">
       <span className="font-head text-xs font-semibold uppercase text-muted-foreground">{label}</span>

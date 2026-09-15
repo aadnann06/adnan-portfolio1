@@ -111,7 +111,7 @@ const contactSchema = z.object({
 
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return (
-    <p className="font-head text-xs font-semibold uppercase text-primary">
+    <p className="font-mono text-xs font-medium uppercase text-primary">
       {number} — {children}
     </p>
   );
@@ -130,7 +130,7 @@ function ResumeButton({ compact = false }: { compact?: boolean }) {
       variant="outline"
       size={compact ? "sm" : "default"}
       onClick={handleClick}
-      className="border-primary/35 bg-primary/10 text-primary shadow-none hover:bg-primary/20 hover:text-primary"
+      className="border-primary/40 bg-transparent text-primary shadow-none hover:bg-primary hover:text-primary-foreground"
     >
       <Download aria-hidden="true" />
       Download Resume
@@ -170,10 +170,10 @@ export function PortfolioPage() {
     <div className="min-h-screen overflow-x-hidden bg-background font-body text-foreground selection:bg-primary/30">
       <div className="tech-grid pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
 
-      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8">
+      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
+        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8">
           <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="Adnan Qureshi home">
-            <span className="grid size-9 shrink-0 place-items-center rounded-md border border-primary/40 bg-primary/10 font-head text-sm font-semibold text-primary shadow-glow">
+            <span className="grid size-9 shrink-0 place-items-center border border-primary/50 bg-primary font-head text-sm font-semibold text-primary-foreground">
               AQ
             </span>
             <span className="min-w-0 truncate font-head text-sm font-semibold text-bright sm:text-base">
@@ -222,19 +222,19 @@ export function PortfolioPage() {
       <main className="relative z-10">
         <section id="home" className="relative scroll-mt-16 overflow-hidden">
           <div className="diagonal-light pointer-events-none absolute inset-0" aria-hidden="true" />
-          <div className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 md:grid-cols-12 md:py-20">
-            <div className="md:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-surface/70 px-3 py-1.5">
+           <div className="mx-auto grid min-h-[760px] max-w-7xl items-center gap-14 px-5 py-20 sm:px-8 md:grid-cols-12 md:py-28">
+             <div className="md:col-span-8">
+               <div className="inline-flex items-center gap-2 border-b border-primary/35 pb-2">
                 <span className="relative flex size-2" aria-hidden="true">
                   <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60" />
                   <span className="relative inline-flex size-2 rounded-full bg-primary" />
                 </span>
                 <span className="font-head text-xs font-semibold uppercase text-primary">Open to entry-level opportunities</span>
               </div>
-              <h1 className="mt-6 max-w-[16ch] font-head text-5xl font-semibold leading-[1.02] text-bright sm:text-6xl lg:text-7xl">
+               <h1 className="mt-8 max-w-[12ch] font-head text-6xl font-semibold leading-[0.9] text-bright sm:text-7xl lg:text-8xl">
                 Adnan Qureshi
               </h1>
-              <p className="mt-4 max-w-[24ch] font-head text-xl font-medium leading-snug text-foreground sm:text-2xl">
+               <p className="mt-7 max-w-[28ch] font-head text-2xl font-medium leading-snug text-primary sm:text-3xl">
                 Aspiring DevOps &amp; Cloud Engineer
               </p>
               <p className="mt-5 max-w-[58ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -255,10 +255,10 @@ export function PortfolioPage() {
               </div>
             </div>
 
-            <div className="md:col-span-5">
+             <div className="md:col-span-4 md:pt-16">
               <div className="portrait-shell relative mx-auto max-w-[390px]">
-                <div className="overflow-hidden rounded-t-[48%_38%] rounded-b-lg border border-primary/35 bg-surface p-2 shadow-portrait">
-                  <img src={portrait} alt="Anonymous portrait placeholder for Adnan Qureshi" width={1024} height={1280} className="aspect-[4/5] w-full rounded-t-[46%_36%] rounded-b object-cover" />
+                 <div className="overflow-hidden rounded-t-[48%_38%] border border-primary/40 bg-surface p-2 shadow-portrait">
+                   <img src={portrait} alt="Anonymous portrait placeholder for Adnan Qureshi" width={1024} height={1280} className="aspect-[4/5] w-full rounded-t-[46%_36%] object-cover grayscale-[25%]" />
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-2 py-3">
                     <span className="min-w-0 truncate font-mono text-xs uppercase text-subtle">profile_placeholder</span>
                     <span className="flex shrink-0 items-center gap-1.5 text-xs text-primary"><span className="size-1.5 rounded-full bg-primary" />available</span>
@@ -272,13 +272,13 @@ export function PortfolioPage() {
           </div>
         </section>
 
-        <section className="border-y border-border bg-surface/25 py-9" aria-label="DevOps pipeline">
+        <section className="border-y border-border bg-surface/40 py-10" aria-label="DevOps pipeline">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="mb-5 flex items-center gap-3"><span className="font-mono text-xs uppercase text-primary">Infrastructure flow</span><span className="h-px flex-1 bg-border" /></div>
             <ol className="pipeline-grid grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
               {pipeline.map(({ label, icon: Icon }, index) => (
-                <li key={label} className="pipeline-node relative flex items-center gap-3 rounded-md border border-border bg-background/65 p-3">
-                  <span className="grid size-8 shrink-0 place-items-center rounded-md bg-primary/10 text-primary"><Icon className="size-4" /></span>
+                 <li key={label} className="pipeline-node relative flex items-center gap-3 border border-border bg-background/65 p-3">
+                   <span className="grid size-8 shrink-0 place-items-center bg-primary/10 text-primary"><Icon className="size-4" /></span>
                   <span className="min-w-0 font-head text-xs font-medium text-foreground">{label}</span>
                   {index < pipeline.length - 1 && <ChevronRight className="pipeline-arrow absolute -right-3 z-10 hidden size-4 text-primary lg:block" aria-hidden="true" />}
                 </li>
@@ -288,10 +288,10 @@ export function PortfolioPage() {
         </section>
 
         <section id="about" className="scroll-mt-16 border-b border-border">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-12">
+           <div className="mx-auto grid max-w-7xl gap-14 px-5 py-24 sm:px-8 md:grid-cols-12 md:py-32">
             <div className="md:col-span-7">
               <SectionLabel number="01">About me</SectionLabel>
-              <h2 className="mt-3 max-w-[22ch] font-head text-3xl font-semibold leading-tight text-bright sm:text-4xl">A focused, honest starting point</h2>
+               <h2 className="mt-5 max-w-[18ch] font-head text-4xl font-semibold leading-[1.05] text-bright sm:text-5xl">A focused, honest starting point</h2>
               <p className="mt-6 max-w-[62ch] text-base leading-relaxed text-muted-foreground">
                 I graduated in 2025 with a B.Tech in Computer Science Engineering from G H Raisoni Institute of Engineering and Technology, Nagpur. As a fresher, I am building strong foundations in Linux, cloud platforms, containers, networking, automation, and delivery workflows—without overstating experience I have not yet earned.
               </p>
@@ -319,14 +319,14 @@ export function PortfolioPage() {
         </section>
 
         <section id="skills" className="scroll-mt-16 border-b border-border bg-surface/20">
-          <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+           <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:py-32">
             <div className="grid gap-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-              <div><SectionLabel number="02">Technical skills</SectionLabel><h2 className="mt-3 font-head text-3xl font-semibold text-bright sm:text-4xl">Capabilities, honestly staged</h2></div>
+               <div><SectionLabel number="02">Technical skills</SectionLabel><h2 className="mt-5 font-head text-4xl font-semibold leading-[1.05] text-bright sm:text-5xl">Capabilities, honestly staged</h2></div>
               <p className="max-w-[38ch] text-sm text-subtle">No percentage bars or inflated claims—only clear areas of active learning and development.</p>
             </div>
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {skills.map(({ title, icon: Icon, status, copy, tags }) => (
-                <article key={title} className="skill-card group relative overflow-hidden border border-border bg-card/55 p-6 backdrop-blur-sm">
+                 <article key={title} className="skill-card group relative overflow-hidden border border-border bg-card/70 p-7 backdrop-blur-sm">
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   <div className="flex items-start justify-between gap-4"><span className="grid size-10 shrink-0 place-items-center rounded-md bg-primary/10 text-primary"><Icon className="size-5" /></span><span className="rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 font-head text-[10px] font-semibold uppercase text-primary">{status}</span></div>
                   <h3 className="mt-5 font-head text-lg font-semibold text-bright">{title}</h3>
@@ -339,9 +339,9 @@ export function PortfolioPage() {
         </section>
 
         <section id="projects" className="scroll-mt-16 border-b border-border">
-          <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+             <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:py-32">
             <SectionLabel number="03">Projects</SectionLabel>
-            <h2 className="mt-3 font-head text-3xl font-semibold text-bright sm:text-4xl">Projects Coming Soon</h2>
+             <h2 className="mt-5 font-head text-4xl font-semibold leading-[1.05] text-bright sm:text-5xl">Projects Coming Soon</h2>
             <p className="mt-4 max-w-[65ch] leading-relaxed text-muted-foreground">I’m currently building hands-on projects in DevOps, Cloud, Linux, Docker, networking, and CI/CD. Each project will be documented here when it is ready to share honestly.</p>
             <div className="terminal-panel mt-9 overflow-hidden border border-border bg-background/85 font-mono text-sm shadow-panel">
               <div className="flex items-center gap-2 border-b border-border bg-surface/70 px-4 py-3"><span className="size-2.5 rounded-full bg-subtle" /><span className="size-2.5 rounded-full bg-subtle/60" /><span className="size-2.5 rounded-full bg-primary" /><span className="ml-2 text-xs text-subtle">adnan@cloud-lab: ~/projects</span></div>
@@ -356,10 +356,10 @@ export function PortfolioPage() {
         </section>
 
         <section id="career" className="scroll-mt-16 border-b border-border bg-surface/20">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2">
+           <div className="mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-8 lg:grid-cols-2 md:py-32">
             <div>
               <SectionLabel number="04">Career focus</SectionLabel>
-              <h2 className="mt-3 font-head text-3xl font-semibold text-bright sm:text-4xl">Ready for the first professional chapter</h2>
+               <h2 className="mt-5 font-head text-4xl font-semibold leading-[1.05] text-bright sm:text-5xl">Ready for the first professional chapter</h2>
               <p className="mt-5 max-w-[58ch] leading-relaxed text-muted-foreground">I am seeking an entry-level opportunity where I can apply my foundations, learn from production environments, and grow into a dependable infrastructure professional.</p>
               <div className="mt-7 grid gap-2 sm:grid-cols-2">{roles.map((role) => <div key={role} className="flex items-center gap-3 rounded-md border border-border bg-card/50 px-4 py-3 text-sm text-foreground"><Check className="size-4 shrink-0 text-primary" />{role}</div>)}</div>
               <Button asChild size="lg" className="mt-8"><a href="#contact">Let’s Connect <ArrowRight /></a></Button>
@@ -372,9 +372,9 @@ export function PortfolioPage() {
         </section>
 
         <section className="border-b border-border">
-          <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+           <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 md:py-32">
             <SectionLabel number="05">What I’m building</SectionLabel>
-            <h2 className="mt-3 font-head text-3xl font-semibold text-bright sm:text-4xl">Learning with an operator’s mindset</h2>
+             <h2 className="mt-5 font-head text-4xl font-semibold leading-[1.05] text-bright sm:text-5xl">Learning with an operator’s mindset</h2>
             <div className="mt-9 grid gap-8 border-l border-primary/25 pl-6 md:grid-cols-3 md:border-l-0 md:border-t md:pl-0 md:pt-8">
               {[
                 ["Reliable Linux foundations", "Daily command-line practice, processes, permissions, services, and troubleshooting."],
@@ -386,10 +386,10 @@ export function PortfolioPage() {
         </section>
 
         <section id="contact" className="scroll-mt-16">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-12">
+           <div className="mx-auto grid max-w-7xl gap-16 px-5 py-24 sm:px-8 lg:grid-cols-12 md:py-32">
             <div className="lg:col-span-5">
               <SectionLabel number="06">Contact</SectionLabel>
-              <h2 className="mt-3 max-w-[18ch] font-head text-3xl font-semibold text-bright sm:text-4xl">Let’s Build Something Together</h2>
+               <h2 className="mt-5 max-w-[16ch] font-head text-4xl font-semibold leading-[1.05] text-bright sm:text-5xl">Let’s Build Something Together</h2>
               <p className="mt-5 max-w-[45ch] leading-relaxed text-muted-foreground">Reach out about an entry-level role, a learning opportunity, or a conversation about cloud and infrastructure.</p>
               <div className="mt-8 space-y-3">
                 {[
